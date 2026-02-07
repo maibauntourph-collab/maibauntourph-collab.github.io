@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwangseob Park — Full-Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #151515;
+            --accent-primary: #00ff88;
+            --accent-secondary: #0088ff;
+            --accent-tertiary: #ff0088;
+            --text-primary: #ffffff;
+            --text-secondary: #a8a8a8;
+            --text-tertiary: #6a6a6a;
+            --border-color: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Custom cursor */
+        body {
+            cursor: none;
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            transition: all 0.15s ease;
+        }
+
+        /* Animated gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 136, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 136, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 0, 136, 0.02) 0%, transparent 50%);
+            animation: gradientShift 20s ease infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(10%, -10%) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-10%, 10%) rotate(240deg);
+            }
+        }
+
+        /* Typography */
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-700 {
+            animation-delay: 0.7s;
+        }
+
+        .delay-800 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-900 {
+            animation-delay: 0.9s;
+        }
+
+        .delay-1000 {
+            animation-delay: 1s;
+        }
+
+        /* Navigation */
+        nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(13, 13, 13, 0.8);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        /* Profile Image */
+        .profile-wrapper {
+            position: relative;
+            width: 280px;
+            height: 280px;
+        }
+
+        .profile-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+            border-radius: 20px;
+            opacity: 0.5;
+            filter: blur(20px);
+            animation: glowPulse 3s ease-in-out infinite;
+        }
+
+        .profile-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid var(--bg-primary);
+            background: var(--bg-card);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .profile-wrapper:hover .profile-image {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        /* Project Cards - Neo-Brutalist Style */
+        .project-card {
+            position: relative;
+            background: var(--bg-card);
+            border: 3px solid var(--border-color);
+            border-radius: 0;
+            padding: 2.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow:
+                12px 12px 0 rgba(0, 255, 136, 0.2),
+                0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            background: rgba(0, 255, 136, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-title {
+            transform: translateX(8px);
+        }
+
+        /* Tech Tags */
+        .tech-tag {
+            display: inline-block;
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: 2px solid var(--border-color);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        /* Links */
+        .link-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .link-primary::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .link-primary:hover::after {
+            width: calc(100% - 20px);
+        }
+
+        .link-primary:hover {
+            transform: translateX(4px);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            border: 3px solid var(--accent-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            transform: translate(4px, -4px);
+            box-shadow: -4px 4px 0 var(--bg-primary);
+        }
+
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            background: transparent;
+            color: var(--accent-primary);
+            border: 3px solid var(--accent-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            transform: translate(4px, -4px);
+            box-shadow: -4px 4px 0 var(--bg-primary);
+        }
+
+        /* Skill Cards */
+        .skill-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 3px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0 rgba(0, 255, 136, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            filter: grayscale(0%);
+        }
+
+        /* Stats */
+        .stat-card {
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 3px solid var(--border-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+
+        .stat-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section Headers */
+        .section-header {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .section-underline {
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), transparent);
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 3px solid var(--border-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateX(12px);
+            box-shadow: -12px 0 0 rgba(0, 255, 136, 0.2);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid var(--accent-primary);
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Experience Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 3rem;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-primary);
+            border: 3px solid var(--bg-primary);
+            border-radius: 50%;
+        }
+
+        .timeline-item:last-child {
+            border-left-color: transparent;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-tertiary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .scroll-line {
+            width: 2px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--accent-primary), transparent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .profile-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+
+            .project-card,
+            .skill-card,
+            .stat-card {
+                border-width: 2px;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                padding: 1rem 2rem;
+                font-size: 0.875rem;
+            }
+
+            body {
+                cursor: auto;
+            }
+
+            .custom-cursor,
+            .custom-cursor-follower {
+                display: none;
+            }
+        }
+
+        /* Loading Animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .page-loader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            animation: glowPulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-text">LOADING...</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex items-center justify-between">
+                <a href="#" class="font-mono text-xl font-bold text-white">KP<span
+                        class="text-accent-primary">.</span></a>
+                <div class="flex gap-8">
+                    <a href="#about" class="nav-link active">About</a>
+                    <a href="#work" class="nav-link">Work</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen flex items-center pt-24 pb-20">
+        <div class="max-w-7xl mx-auto px-6 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left: Text Content -->
+                <div>
+                    <div class="status-badge animate-fade-in delay-100">
+                        <div class="status-dot"></div>
+                        <span>Available for opportunities</span>
+                    </div>
+
+                    <h1 class="hero-title font-display mt-8 mb-6 animate-fade-in-up delay-200">
+                        Kwangseob<br />Park
+                    </h1>
+
+                    <div class="font-mono text-lg mb-6 animate-fade-in-up delay-300"
+                        style="color: var(--accent-primary);">
+                        Full-Stack Developer & Problem Solver
+                    </div>
+
+                    <p class="text-lg mb-8 animate-fade-in-up delay-400"
+                        style="color: var(--text-secondary); line-height: 1.8;">
+                        Passionate developer specializing in building robust web applications and scalable systems. I
+                        transform complex problems into elegant, user-friendly solutions using modern technologies. With
+                        expertise in both frontend and backend development, I deliver end-to-end solutions that make an
+                        impact.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mt-8 animate-fade-in-up delay-500">
+                        <a href="#work" class="btn-primary">
+                            <span>View My Work</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M8 3v10M13 8l-5 5-5-5" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com/maibauntourph-collab" target="_blank" class="btn-outline">
+                            <span>GitHub Profile</span>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-3 gap-4 mt-12 animate-fade-in-up delay-600">
+                        <div class="stat-card">
+                            <div class="stat-number">3+</div>
+                            <div class="text-sm font-semibold text-secondary mt-2"
+                                style="color: var(--text-secondary);">Years Exp</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">9+</div>
+                            <div class="text-sm font-semibold text-secondary mt-2"
+                                style="color: var(--text-secondary);">Projects</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="text-sm font-semibold text-secondary mt-2"
+                                style="color: var(--text-secondary);">Dedicated</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Profile Image -->
+                <div class="flex justify-center lg:justify-end animate-fade-in delay-700">
+                    <div class="profile-wrapper">
+                        <img src="profile.jpg" alt="Kwangseob Park" class="profile-image"
+                            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22280%22 height=%22280%22%3E%3Crect width=%22280%22 height=%22280%22 fill=%22%23151515%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22IBM Plex Mono%22 font-size=%22100%22 fill=%22%2300ff88%22 font-weight=%22700%22%3EKP%3C/text%3E%3C/svg%3E'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section id="work" class="py-24"
+        style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="section-header animate-fade-in-up">
+                <div class="section-number">// 01</div>
+                <h2 class="section-title">Featured Work</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card animate-fade-in-up delay-200">
+                    <div class="project-number">#01</div>
+
+                    <h3 class="project-title">CruiseMarket</h3>
+
+                    <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
+                        A comprehensive online marketplace platform for cruise bookings and vacation packages. Features
+                        include real-time availability tracking, secure payment processing, and an intuitive booking
+                        flow that simplifies the customer journey.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+
+                    <div class="mt-auto">
+                        <div class="flex flex-col gap-3">
+                            <a href="https://github.com/maibauntourph-collab/cruisemarket" target="_blank"
+                                class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                                <span>View Code</span>
+                            </a>
+                            <a href="https://cruisemarket.new" target="_blank" class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12l6-6M11 11V6H6" />
+                                </svg>
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card animate-fade-in-up delay-300">
+                    <div class="project-number">#02</div>
+
+                    <h3 class="project-title">Digital Empire 2</h3>
+
+                    <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
+                        Enterprise-grade management system designed for digital businesses. Streamlines operations with
+                        inventory tracking, CRM integration, analytics dashboard, and automated workflows to boost
+                        productivity and insights.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
+                    </div>
+
+                    <div class="mt-auto">
+                        <div class="flex flex-col gap-3">
+                            <a href="https://github.com/maibauntourph-collab/digital-empire-2-managing-system"
+                                target="_blank" class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                                <span>View Code</span>
+                            </a>
+                            <a href="https://digitalempire2.com" target="_blank" class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12l6-6M11 11V6H6" />
+                                </svg>
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card animate-fade-in-up delay-400">
+                    <div class="project-number">#03</div>
+
+                    <h3 class="project-title">StudyUP Korea</h3>
+
+                    <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
+                        Educational platform connecting international students with Korean universities. Offers
+                        application tracking, document management, program discovery, and comprehensive student
+                        resources for a seamless study abroad experience.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">UI/UX</span>
+                    </div>
+
+                    <div class="mt-auto">
+                        <div class="flex flex-col gap-3">
+                            <a href="https://github.com/maibauntourph-collab/StudyUPPKOREA" target="_blank"
+                                class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                                <span>View Code</span>
+                            </a>
+                            <a href="https://studyupkorea.com" target="_blank" class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12l6-6M11 11V6H6" />
+                                </svg>
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Projects -->
+            <div class="text-center mt-16 animate-fade-in-up delay-500">
+                <a href="https://github.com/maibauntourph-collab?tab=repositories" target="_blank" class="btn-outline">
+                    <span>View All Projects</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 8h10M8 3l5 5-5 5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="section-header animate-fade-in-up">
+                <div class="section-number">// 02</div>
+                <h2 class="section-title">Experience</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="max-w-4xl">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item animate-fade-in-up delay-200">
+                    <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-primary);">Full-Stack Developer</h3>
+                    <div class="font-mono text-sm mb-4" style="color: var(--text-secondary);">2023 - Present</div>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        Developing and maintaining web applications using modern technologies including React,
+                        TypeScript, and Node.js. Collaborated with cross-functional teams to deliver high-quality
+                        solutions that meet client requirements and exceed expectations.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item animate-fade-in-up delay-300">
+                    <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-primary);">Software Developer</h3>
+                    <div class="font-mono text-sm mb-4" style="color: var(--text-secondary);">2022 - 2023</div>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        Built responsive web applications and contributed to the development of scalable backend
+                        systems. Implemented RESTful APIs, optimized database queries, and improved application
+                        performance by 40%.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item animate-fade-in-up delay-400">
+                    <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-primary);">Education & Certifications
+                    </h3>
+                    <div class="font-mono text-sm mb-4" style="color: var(--text-secondary);">Ongoing Learning</div>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        Continuously expanding knowledge through online courses, certifications, and personal projects.
+                        Strong foundation in computer science fundamentals, data structures, and algorithms.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24" style="background: var(--bg-secondary);">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="section-header animate-fade-in-up">
+                <div class="section-number">// 03</div>
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <div class="skill-card animate-fade-in-up delay-200">
+                    <div class="skill-icon">⚛️</div>
+                    <div class="font-bold text-lg mb-1">React</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Frontend</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-250">
+                    <div class="skill-icon">📘</div>
+                    <div class="font-bold text-lg mb-1">TypeScript</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Language</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-300">
+                    <div class="skill-icon">🟢</div>
+                    <div class="font-bold text-lg mb-1">Node.js</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Backend</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-350">
+                    <div class="skill-icon">🗄️</div>
+                    <div class="font-bold text-lg mb-1">MongoDB</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Database</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-400">
+                    <div class="skill-icon">🔥</div>
+                    <div class="font-bold text-lg mb-1">Firebase</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Backend</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-450">
+                    <div class="skill-icon">🎨</div>
+                    <div class="font-bold text-lg mb-1">Tailwind</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Styling</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-500">
+                    <div class="skill-icon">🔌</div>
+                    <div class="font-bold text-lg mb-1">REST API</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Integration</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-550">
+                    <div class="skill-icon">📦</div>
+                    <div class="font-bold text-lg mb-1">Express</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Framework</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-600">
+                    <div class="skill-icon">🌐</div>
+                    <div class="font-bold text-lg mb-1">Git</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Version Control</div>
+                </div>
+
+                <div class="skill-card animate-fade-in-up delay-650">
+                    <div class="skill-icon">📱</div>
+                    <div class="font-bold text-lg mb-1">Responsive</div>
+                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Design</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="section-header animate-fade-in-up">
+                <div class="section-number">// 04</div>
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="max-w-4xl">
+                <p class="text-xl mb-12 animate-fade-in-up delay-200"
+                    style="color: var(--text-secondary); line-height: 1.8;">
+                    I'm always interested in hearing about new projects, creative ideas, and opportunities to
+                    collaborate. Whether you have a question or just want to say hi, feel free to reach out!
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Email Placeholder -->
+                    <div class="contact-card animate-fade-in-up delay-300" style="cursor: default;">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-lg mb-1">Email</div>
+                            <div class="text-sm font-mono" style="color: var(--text-secondary);">your.email@example.com
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/maibauntourph-collab" target="_blank"
+                        class="contact-card animate-fade-in-up delay-350">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-lg mb-1">GitHub</div>
+                            <div class="text-sm" style="color: var(--text-secondary);">@maibauntourph-collab</div>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12l6-6M11 11V6H6" />
+                        </svg>
+                    </a>
+
+                    <!-- LinkedIn Placeholder -->
+                    <div class="contact-card animate-fade-in-up delay-400" style="cursor: default;">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>''''''''''''''''''''
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-lg mb-1">LinkedIn</div>
+                            <div class="text-sm" style="color: var(--text-secondary);">Your Profile</div>
+                        </div>
+                    </div>
+
+                    <!-- Resume Placeholder -->
+                    <div class="contact-card animate-fade-in-up delay-450" style="cursor: default;">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="font-bold text-lg mb-1">Resume</div>
+                            <div class="text-sm" style="color: var(--text-secondary);">View Full CV</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t-3" style="border-color: var(--border-color);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="font-mono text-sm" style="color: var(--text-tertiary);">
+                    © 2026 Kwangseob Park. Built with passion and innovation ⚡
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://github.com/maibauntourph-collab" target="_blank"
+                        class="font-mono text-sm transition-colors" style="color: var(--text-tertiary);"
+                        onmouseover="this.style.color='var(--accent-primary)'"
+                        onmouseout="this.style.color='var(--text-tertiary)'">
+                        GitHub
+                    </a>
+                    <a href="#contact" class="font-mono text-sm transition-colors" style="color: var(--text-tertiary);"
+                        onmouseover="this.style.color='var(--accent-primary)'"
+                        onmouseout="this.style.color='var(--text-tertiary)'">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.page-loader').classList.add('loaded');
+            }, 1000);
+        });
+
+        // Custom Cursor (Desktop only)
+        if (window.innerWidth > 768) {
+            const cursor = document.querySelector('.custom-cursor');
+            const cursorFollower = document.querySelector('.custom-cursor-follower');
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+
+                setTimeout(() => {
+                    cursorFollower.style.left = e.clientX + 'px';
+                    cursorFollower.style.top = e.clientY + 'px';
+                }, 100);
+            });
+
+            // Cursor hover effects
+            const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-card');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.5)';
+                    cursorFollower.style.transform = 'scale(1.5)';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursorFollower.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active Navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Hide scroll indicator after scrolling
+            if (window.scrollY > 100) {
+                document.querySelector('.scroll-indicator').style.opacity = '0';
+            } else {
+                document.querySelector('.scroll-indicator').style.opacity = '1';
+            }
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-fade-in-up, .animate-fade-in, .animate-slide-in-right').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax Effect on Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.profile-wrapper');
+            if (parallax && scrolled < 1000) {
+                parallax.style.transform = `translateY(${scrolled * 0.3}px) scale(${1 - scrolled * 0.0002})`;
+            }
+        });
+    </script>
+</body>
+
+</html>"?????????"
