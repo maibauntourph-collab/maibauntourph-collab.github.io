@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kwangseob Park — Full-Stack Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description"
+        content="Full-Stack Developer specializing in React, APIs, and production-ready web applications.">
+    <meta name="author" content="Kwangseob Park">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -286,18 +289,19 @@
         /* Profile Image */
         .profile-wrapper {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: 400px;
+            height: 400px;
+            z-index: 10;
         }
 
         .profile-wrapper::before {
             content: '';
             position: absolute;
-            inset: -4px;
+            inset: -6px;
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
-            border-radius: 20px;
-            opacity: 0.5;
-            filter: blur(20px);
+            border-radius: 30px;
+            opacity: 0.6;
+            filter: blur(25px);
             animation: glowPulse 3s ease-in-out infinite;
         }
 
@@ -306,14 +310,16 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 20px;
-            border: 3px solid var(--bg-primary);
+            border-radius: 30px;
+            border: 4px solid var(--bg-primary);
             background: var(--bg-card);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .profile-wrapper:hover .profile-image {
-            transform: scale(1.05) rotate(2deg);
+            transform: scale(1.02) rotate(1deg);
+            border-color: var(--accent-primary);
         }
 
         /* Project Cards - Neo-Brutalist Style */
@@ -709,8 +715,8 @@
             }
 
             .profile-wrapper {
-                width: 200px;
-                height: 200px;
+                width: 280px;
+                height: 280px;
             }
 
             .project-card,
@@ -781,14 +787,14 @@
             <div class="flex items-center justify-between">
                 <a href="#" class="font-mono text-xl font-bold text-white">KP<span
                         class="text-accent-primary">.</span></a>
-                <div class="flex gap-8">
-                    <a href="#about" class="nav-link active">About</a>
-                    <a href="#work" class="nav-link">Work</a>
-                    <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
+        </div>
         </div>
     </nav>
 
@@ -1148,12 +1154,73 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="services" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="section-header animate-fade-in-up">
+                <div class="section-number">// 04</div>
+                <h2 class="section-title">Services</h2>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Mobile Development -->
+                <div class="skill-card text-left animate-fade-in-up delay-200"
+                    style="align-items: flex-start; display: flex; flex-direction: column; text-align: left;">
+                    <div class="skill-icon">📱</div>
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--accent-primary);">Mobile Development</h3>
+                    <ul class="space-y-4 w-full">
+                        <li class="flex items-center gap-3">
+                            <span class="status-dot"></span>
+                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Native Android</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="status-dot"></span>
+                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Native iOS</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="status-dot"></span>
+                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Cross-Platform
+                                Development</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="status-dot"></span>
+                            <span style="color: var(--text-secondary); font-size: 1.1rem;">WebView Integration</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Website Development -->
+                <div class="skill-card text-left animate-fade-in-up delay-300"
+                    style="align-items: flex-start; display: flex; flex-direction: column; text-align: left;">
+                    <div class="skill-icon">💻</div>
+                    <h3 class="text-2xl font-bold mb-6" style="color: var(--accent-primary);">Website Development</h3>
+                    <ul class="space-y-4 w-full">
+                        <li class="flex items-center gap-3">
+                            <span class="status-dot"></span>
+                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Frontend Development</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="status-dot"></span>
+                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Backend Development</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="status-dot"></span>
+                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Website Deployment</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-24">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Section Header -->
             <div class="section-header animate-fade-in-up">
-                <div class="section-number">// 04</div>
+                <div class="section-number">// 05</div>
                 <h2 class="section-title">Let's Connect</h2>
                 <div class="section-underline"></div>
             </div>
