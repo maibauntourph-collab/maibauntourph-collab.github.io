@@ -787,16 +787,18 @@
             <div class="flex items-center justify-between">
                 <a href="#" class="font-mono text-xl font-bold text-white">KP<span
                         class="text-accent-primary">.</span></a>
-                <a href="#about" class="nav-link active">About</a>
-                <a href="#work" class="nav-link">Work</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <div class="flex gap-8">
+                    <a href="#about" class="nav-link active">About</a>
+                    <a href="#work" class="nav-link">Projects</a>
+                    <a href="mailto:Jitnet57@gmail.com" class="btn-primary"
+                        style="padding: 0.75rem 1.5rem; font-size: 0.875rem;">
+                        <span>Contact Me</span>
+                    </a>
+                </div>
             </div>
         </div>
-        </div>
     </nav>
+
 
     <!-- Hero Section -->
     <section id="about" class="min-h-screen flex items-center pt-24 pb-20">
@@ -815,47 +817,22 @@
 
                     <div class="font-mono text-lg mb-6 animate-fade-in-up delay-300"
                         style="color: var(--accent-primary);">
-                        Full-Stack Developer & Problem Solver
+                        I build modern, fast, and scalable web applications.
                     </div>
 
                     <p class="text-lg mb-8 animate-fade-in-up delay-400"
                         style="color: var(--text-secondary); line-height: 1.8;">
-                        Passionate developer specializing in building robust web applications and scalable systems. I
-                        transform complex problems into elegant, user-friendly solutions using modern technologies. With
-                        expertise in both frontend and backend development, I deliver end-to-end solutions that make an
-                        impact.
+                        Full-stack web developer specializing in React-based frontends, secure backends, and
+                        production-ready deployments using Supabase and Vercel.
                     </p>
 
                     <div class="flex flex-wrap gap-4 mt-8 animate-fade-in-up delay-500">
-                        <a href="#work" class="btn-primary">
-                            <span>View My Work</span>
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M8 3v10M13 8l-5 5-5-5" />
-                            </svg>
+                        <a href="mailto:Jitnet57@gmail.com?subject=Discovery Call Request" class="btn-primary">
+                            <span>Book a Free Discovery Call</span>
                         </a>
-                        <a href="https://github.com/maibauntourph-collab" target="_blank" class="btn-outline">
-                            <span>GitHub Profile</span>
+                        <a href="#work" class="btn-outline">
+                            <span>View Projects</span>
                         </a>
-                    </div>
-
-                    <!-- Quick Stats -->
-                    <div class="grid grid-cols-3 gap-4 mt-12 animate-fade-in-up delay-600">
-                        <div class="stat-card">
-                            <div class="stat-number">3+</div>
-                            <div class="text-sm font-semibold text-secondary mt-2"
-                                style="color: var(--text-secondary);">Years Exp</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">9+</div>
-                            <div class="text-sm font-semibold text-secondary mt-2"
-                                style="color: var(--text-secondary);">Projects</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-number">100%</div>
-                            <div class="text-sm font-semibold text-secondary mt-2"
-                                style="color: var(--text-secondary);">Dedicated</div>
-                        </div>
                     </div>
                 </div>
 
@@ -876,456 +853,419 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="py-24" style="background: var(--bg-secondary);">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="section-header animate-fade-in-up">
+                <div class="section-number">// ABOUT</div>
+                <div class="section-underline"></div>
+            </div>
+
+            <p class="text-xl mb-6 animate-fade-in-up delay-200" style="color: var(--text-primary); line-height: 1.8;">
+                I design and build end-to-end web applications with a strong focus on clarity, performance, and
+                real-world usability.
+            </p>
+
+            <p class="text-lg mb-6 animate-fade-in-up delay-300"
+                style="color: var(--text-secondary); line-height: 1.8;">
+                My work spans the full development lifecycle—from frontend interfaces and backend logic to database
+                design and deployment. I prioritize clean code, maintainable architecture, and solutions that are ready
+                for real users.
+            </p>
+
+            <p class="text-lg animate-fade-in-up delay-400" style="color: var(--text-secondary); line-height: 1.8;">
+                Using modern tools like React, Supabase, and Vercel, I deliver reliable web applications that solve
+                practical problems and scale with real-world needs.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="section-header animate-fade-in-up">
+                <div class="section-number">// TECH STACK</div>
+                <div class="section-underline"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Frontend -->
+                <div class="animate-fade-in-up delay-200">
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">Frontend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="animate-fade-in-up delay-300">
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">Backend</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                </div>
+
+                <!-- Database -->
+                <div class="animate-fade-in-up delay-400">
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">Database</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+
+                <!-- Deployment -->
+                <div class="animate-fade-in-up delay-500">
+                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">Deployment</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">Vercel</span>
+                        <span class="tech-tag">GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Featured Work Section -->
     <section id="work" class="py-24"
         style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));">
         <div class="max-w-7xl mx-auto px-6">
             <!-- Section Header -->
             <div class="section-header animate-fade-in-up">
-                <div class="section-number">// 01</div>
+                <div class="section-number">// PROJECTS</div>
                 <h2 class="section-title">Featured Work</h2>
                 <div class="section-underline"></div>
             </div>
 
             <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
+                <!-- Project 1: Web Application Platform -->
                 <div class="project-card animate-fade-in-up delay-200">
                     <div class="project-number">#01</div>
 
-                    <h3 class="project-title">CruiseMarket</h3>
+                    <h3 class="project-title">Web Application Platform</h3>
 
                     <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
-                        A comprehensive online marketplace platform for cruise bookings and vacation packages. Features
-                        include real-time availability tracking, secure payment processing, and an intuitive booking
-                        flow that simplifies the customer journey.
+                        A production-ready web application designed to solve a real-world use case with a clean user
+                        interface and a reliable backend.
                     </p>
 
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">API</span>
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-3" style="color: var(--accent-primary); font-size: 0.9rem;">What I built
+                        </h4>
+                        <ul class="space-y-2" style="color: var(--text-secondary); font-size: 0.9rem;">
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Responsive frontend using React and Vite</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Backend logic with authentication and data handling</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Database integration with Supabase</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Deployed and optimized for performance</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-2" style="color: var(--text-tertiary); font-size: 0.8rem;">Tech Stack
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vite</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
                     </div>
 
                     <div class="mt-auto">
                         <div class="flex flex-col gap-3">
-                            <a href="https://github.com/maibauntourph-collab/cruisemarket" target="_blank"
-                                class="link-primary">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path
-                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <span>View Code</span>
-                            </a>
-                            <a href="https://cruisemarket.new" target="_blank" class="link-primary">
+                            <a href="mailto:Jitnet57@gmail.com?subject=Request for Live Demo" class="link-primary">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
                                     stroke-width="2">
                                     <path d="M5 12l6-6M11 11V6H6" />
                                 </svg>
-                                <span>Live Demo</span>
+                                <span>Request Demo</span>
+                            </a>
+                            <a href="https://github.com/maibauntourph-collab" target="_blank" class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                                <span>GitHub Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 2: Admin Dashboard System -->
                 <div class="project-card animate-fade-in-up delay-300">
                     <div class="project-number">#02</div>
 
-                    <h3 class="project-title">Digital Empire 2</h3>
+                    <h3 class="project-title">Admin Dashboard System</h3>
 
                     <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
-                        Enterprise-grade management system designed for digital businesses. Streamlines operations with
-                        inventory tracking, CRM integration, analytics dashboard, and automated workflows to boost
-                        productivity and insights.
+                        An admin-focused dashboard built to manage data, users, and application logic in a structured
+                        and secure environment.
                     </p>
 
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Express</span>
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-3" style="color: var(--accent-primary); font-size: 0.9rem;">What I built
+                        </h4>
+                        <ul class="space-y-2" style="color: var(--text-secondary); font-size: 0.9rem;">
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Role-based user interface structure</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Dynamic data rendering and state management</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Clean and scalable component architecture</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Secure backend integration</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-2" style="color: var(--text-tertiary); font-size: 0.8rem;">Tech Stack
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
                     </div>
 
                     <div class="mt-auto">
                         <div class="flex flex-col gap-3">
-                            <a href="https://github.com/maibauntourph-collab/digital-empire-2-managing-system"
-                                target="_blank" class="link-primary">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path
-                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <span>View Code</span>
-                            </a>
-                            <a href="https://digitalempire2.com" target="_blank" class="link-primary">
+                            <a href="mailto:Jitnet57@gmail.com?subject=Request for Live Demo" class="link-primary">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
                                     stroke-width="2">
                                     <path d="M5 12l6-6M11 11V6H6" />
                                 </svg>
-                                <span>Live Demo</span>
+                                <span>Request Demo</span>
+                            </a>
+                            <a href="https://github.com/maibauntourph-collab" target="_blank" class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                                <span>GitHub Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
+                <!-- Project 3: Business Utility Tool -->
                 <div class="project-card animate-fade-in-up delay-400">
                     <div class="project-number">#03</div>
 
-                    <h3 class="project-title">StudyUP Korea</h3>
+                    <h3 class="project-title">Business Utility Tool</h3>
 
                     <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
-                        Educational platform connecting international students with Korean universities. Offers
-                        application tracking, document management, program discovery, and comprehensive student
-                        resources for a seamless study abroad experience.
+                        A lightweight business tool created to simplify workflows with speed, clarity, and usability in
+                        mind.
                     </p>
 
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">UI/UX</span>
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-3" style="color: var(--accent-primary); font-size: 0.9rem;">What I built
+                        </h4>
+                        <ul class="space-y-2" style="color: var(--text-secondary); font-size: 0.9rem;">
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Intuitive and minimal user interface</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Data validation and error handling</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Scalable project structure</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span style="color: var(--accent-primary);">•</span>
+                                <span>Deployed for real-world use</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="font-bold mb-2" style="color: var(--text-tertiary); font-size: 0.8rem;">Tech Stack
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
                     </div>
 
                     <div class="mt-auto">
                         <div class="flex flex-col gap-3">
-                            <a href="https://github.com/maibauntourph-collab/StudyUPPKOREA" target="_blank"
-                                class="link-primary">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path
-                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-                                </svg>
-                                <span>View Code</span>
-                            </a>
-                            <a href="https://studyupkorea.com" target="_blank" class="link-primary">
+                            <a href="mailto:Jitnet57@gmail.com?subject=Request for Live Demo" class="link-primary">
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor"
                                     stroke-width="2">
                                     <path d="M5 12l6-6M11 11V6H6" />
                                 </svg>
-                                <span>Live Demo</span>
+                                <span>Request Demo</span>
+                            </a>
+                            <a href="https://github.com/maibauntourph-collab" target="_blank" class="link-primary">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                                <span>GitHub Repository</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- View All Projects -->
-            <div class="text-center mt-16 animate-fade-in-up delay-500">
-                <a href="https://github.com/maibauntourph-collab?tab=repositories" target="_blank" class="btn-outline">
-                    <span>View All Projects</span>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 8h10M8 3l5 5-5 5" />
-                    </svg>
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="section-header animate-fade-in-up">
-                <div class="section-number">// 02</div>
-                <h2 class="section-title">Experience</h2>
-                <div class="section-underline"></div>
-            </div>
 
-            <div class="max-w-4xl">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item animate-fade-in-up delay-200">
-                    <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-primary);">Full-Stack Developer</h3>
-                    <div class="font-mono text-sm mb-4" style="color: var(--text-secondary);">2023 - Present</div>
-                    <p style="color: var(--text-secondary); line-height: 1.8;">
-                        Developing and maintaining web applications using modern technologies including React,
-                        TypeScript, and Node.js. Collaborated with cross-functional teams to deliver high-quality
-                        solutions that meet client requirements and exceed expectations.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                    </div>
-                </div>
 
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item animate-fade-in-up delay-300">
-                    <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-primary);">Software Developer</h3>
-                    <div class="font-mono text-sm mb-4" style="color: var(--text-secondary);">2022 - 2023</div>
-                    <p style="color: var(--text-secondary); line-height: 1.8;">
-                        Built responsive web applications and contributed to the development of scalable backend
-                        systems. Implemented RESTful APIs, optimized database queries, and improved application
-                        performance by 40%.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Express</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Git</span>
-                    </div>
-                </div>
+    <!-- CTA Section -->
+    <section class="py-24 border-t-3" style="border-color: var(--border-color); background: var(--bg-secondary);">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <!-- Headline -->
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up"
+                style="background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                Let's Talk About Your Project
+            </h2>
 
-                <!-- Timeline Item 3 -->
-                <div class="timeline-item animate-fade-in-up delay-400">
-                    <h3 class="text-2xl font-bold mb-2" style="color: var(--accent-primary);">Education & Certifications
-                    </h3>
-                    <div class="font-mono text-sm mb-4" style="color: var(--text-secondary);">Ongoing Learning</div>
-                    <p style="color: var(--text-secondary); line-height: 1.8;">
-                        Continuously expanding knowledge through online courses, certifications, and personal projects.
-                        Strong foundation in computer science fundamentals, data structures, and algorithms.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-24" style="background: var(--bg-secondary);">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="section-header animate-fade-in-up">
-                <div class="section-number">// 03</div>
-                <h2 class="section-title">Technical Skills</h2>
-                <div class="section-underline"></div>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                <div class="skill-card animate-fade-in-up delay-200">
-                    <div class="skill-icon">⚛️</div>
-                    <div class="font-bold text-lg mb-1">React</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Frontend</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-250">
-                    <div class="skill-icon">📘</div>
-                    <div class="font-bold text-lg mb-1">TypeScript</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Language</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-300">
-                    <div class="skill-icon">🟢</div>
-                    <div class="font-bold text-lg mb-1">Node.js</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Backend</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-350">
-                    <div class="skill-icon">🗄️</div>
-                    <div class="font-bold text-lg mb-1">MongoDB</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Database</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-400">
-                    <div class="skill-icon">🔥</div>
-                    <div class="font-bold text-lg mb-1">Firebase</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Backend</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-450">
-                    <div class="skill-icon">🎨</div>
-                    <div class="font-bold text-lg mb-1">Tailwind</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Styling</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-500">
-                    <div class="skill-icon">🔌</div>
-                    <div class="font-bold text-lg mb-1">REST API</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Integration</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-550">
-                    <div class="skill-icon">📦</div>
-                    <div class="font-bold text-lg mb-1">Express</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Framework</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-600">
-                    <div class="skill-icon">🌐</div>
-                    <div class="font-bold text-lg mb-1">Git</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Version Control</div>
-                </div>
-
-                <div class="skill-card animate-fade-in-up delay-650">
-                    <div class="skill-icon">📱</div>
-                    <div class="font-bold text-lg mb-1">Responsive</div>
-                    <div class="text-xs font-mono" style="color: var(--text-tertiary);">Design</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="section-header animate-fade-in-up">
-                <div class="section-number">// 04</div>
-                <h2 class="section-title">Services</h2>
-                <div class="section-underline"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Mobile Development -->
-                <div class="skill-card text-left animate-fade-in-up delay-200"
-                    style="align-items: flex-start; display: flex; flex-direction: column; text-align: left;">
-                    <div class="skill-icon">📱</div>
-                    <h3 class="text-2xl font-bold mb-6" style="color: var(--accent-primary);">Mobile Development</h3>
-                    <ul class="space-y-4 w-full">
-                        <li class="flex items-center gap-3">
-                            <span class="status-dot"></span>
-                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Native Android</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="status-dot"></span>
-                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Native iOS</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="status-dot"></span>
-                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Cross-Platform
-                                Development</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="status-dot"></span>
-                            <span style="color: var(--text-secondary); font-size: 1.1rem;">WebView Integration</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Website Development -->
-                <div class="skill-card text-left animate-fade-in-up delay-300"
-                    style="align-items: flex-start; display: flex; flex-direction: column; text-align: left;">
-                    <div class="skill-icon">💻</div>
-                    <h3 class="text-2xl font-bold mb-6" style="color: var(--accent-primary);">Website Development</h3>
-                    <ul class="space-y-4 w-full">
-                        <li class="flex items-center gap-3">
-                            <span class="status-dot"></span>
-                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Frontend Development</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="status-dot"></span>
-                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Backend Development</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="status-dot"></span>
-                            <span style="color: var(--text-secondary); font-size: 1.1rem;">Website Deployment</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <!-- Section Header -->
-            <div class="section-header animate-fade-in-up">
-                <div class="section-number">// 05</div>
-                <h2 class="section-title">Let's Connect</h2>
-                <div class="section-underline"></div>
-            </div>
-
-            <div class="max-w-4xl">
-                <p class="text-xl mb-12 animate-fade-in-up delay-200"
-                    style="color: var(--text-secondary); line-height: 1.8;">
-                    I'm always interested in hearing about new projects, creative ideas, and opportunities to
-                    collaborate. Whether you have a question or just want to say hi, feel free to reach out!
+            <!-- Testimonial / Credibility -->
+            <div class="mb-8 animate-fade-in-up delay-100">
+                <p class="text-lg italic mb-2"
+                    style="color: var(--text-secondary); font-family: 'Playfair Display', serif;">
+                    "Kwangseob delivered a production-ready app ahead of schedule. His technical expertise and
+                    communication made the entire process seamless."
                 </p>
+                <p class="text-sm font-mono" style="color: var(--text-tertiary);">
+                    — Previous Client
+                </p>
+            </div>
 
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Email Placeholder -->
-                    <div class="contact-card animate-fade-in-up delay-300" style="cursor: default;">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,13 2,6" />
+            <!-- What You Get From This Call -->
+            <div class="mb-10 animate-fade-in-up delay-200">
+                <h3 class="text-xl font-bold mb-6" style="color: var(--accent-primary);">What You'll Get From This Call:
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6 text-left">
+                    <div class="flex gap-3">
+                        <div class="flex-shrink-0 mt-1">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="9" stroke="var(--accent-primary)" stroke-width="2" />
+                                <path d="M6 10l3 3 5-6" stroke="var(--accent-primary)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </div>
-                        <div class="flex-grow">
-                            <div class="font-bold text-lg mb-1">Email</div>
-                            <div class="text-sm font-mono" style="color: var(--text-secondary);">your.email@example.com
+                        <div>
+                            <div class="font-bold mb-1" style="color: var(--text-primary);">Discuss Your Project</div>
+                            <div class="text-sm" style="color: var(--text-secondary);">Share your vision and goals</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="flex-shrink-0 mt-1">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="9" stroke="var(--accent-primary)" stroke-width="2" />
+                                <path d="M6 10l3 3 5-6" stroke="var(--accent-primary)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold mb-1" style="color: var(--text-primary);">Tech Stack & Scope</div>
+                            <div class="text-sm" style="color: var(--text-secondary);">Get expert recommendations</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <div class="flex-shrink-0 mt-1">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="9" stroke="var(--accent-primary)" stroke-width="2" />
+                                <path d="M6 10l3 3 5-6" stroke="var(--accent-primary)" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold mb-1" style="color: var(--text-primary);">See If We're a Good Fit
+                            </div>
+                            <div class="text-sm" style="color: var(--text-secondary);">No pressure, just conversation
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- GitHub -->
-                    <a href="https://github.com/maibauntourph-collab" target="_blank"
-                        class="contact-card animate-fade-in-up delay-350">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                            </svg>
-                        </div>
-                        <div class="flex-grow">
-                            <div class="font-bold text-lg mb-1">GitHub</div>
-                            <div class="text-sm" style="color: var(--text-secondary);">@maibauntourph-collab</div>
-                        </div>
-                        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M5 12l6-6M11 11V6H6" />
+            <!-- Primary CTA -->
+            <div class="mb-6 animate-fade-in-up delay-300">
+                <a href="mailto:Jitnet57@gmail.com?subject=Discovery Call Request" class="btn-primary"
+                    style="padding: 1.5rem 3rem; font-size: 1.1rem;">
+                    <span>📞 Book a Free Discovery Call</span>
+                </a>
+            </div>
+
+            <!-- Reassurance Text -->
+            <div class="mb-12 animate-fade-in-up delay-400">
+                <div class="flex flex-wrap justify-center gap-6 text-sm font-mono"
+                    style="color: var(--text-secondary);">
+                    <div class="flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z" fill="var(--accent-primary)" />
                         </svg>
-                    </a>
-
-                    <!-- LinkedIn Placeholder -->
-                    <div class="contact-card animate-fade-in-up delay-400" style="cursor: default;">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>''''''''''''''''''''
-                        </div>
-                        <div class="flex-grow">
-                            <div class="font-bold text-lg mb-1">LinkedIn</div>
-                            <div class="text-sm" style="color: var(--text-secondary);">Your Profile</div>
-                        </div>
+                        <span>15–30 min</span>
                     </div>
-
-                    <!-- Resume Placeholder -->
-                    <div class="contact-card animate-fade-in-up delay-450" style="cursor: default;">
-                        <div class="contact-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                                <polyline points="14 2 14 8 20 8" />
-                                <line x1="16" y1="13" x2="8" y2="13" />
-                                <line x1="16" y1="17" x2="8" y2="17" />
-                            </svg>
-                        </div>
-                        <div class="flex-grow">
-                            <div class="font-bold text-lg mb-1">Resume</div>
-                            <div class="text-sm" style="color: var(--text-secondary);">View Full CV</div>
-                        </div>
+                    <div class="flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z" fill="var(--accent-primary)" />
+                        </svg>
+                        <span>No pressure</span>
                     </div>
+                    <div class="flex items-center gap-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z" fill="var(--accent-primary)" />
+                        </svg>
+                        <span>Free consultation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary CTAs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up delay-500">
+                <a href="#work" class="btn-outline" style="padding: 0.875rem 1.75rem; font-size: 0.875rem;">
+                    <span>View Projects</span>
+                </a>
+                <a href="https://github.com/maibauntourph-collab" target="_blank" class="btn-outline"
+                    style="padding: 0.875rem 1.75rem; font-size: 0.875rem;">
+                    <span>GitHub Profile</span>
+                </a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 border-t-2" style="border-color: var(--border-color);">
+                <div class="font-mono text-sm" style="color: var(--text-tertiary);">
+                    © 2026 Kwangseob Park. Built with passion and innovation ⚡
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="py-12 border-t-3" style="border-color: var(--border-color);">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="font-mono text-sm" style="color: var(--text-tertiary);">
-                    © 2026 Kwangseob Park. Built with passion and innovation ⚡
-                </div>
-                <div class="flex gap-6">
-                    <a href="https://github.com/maibauntourph-collab" target="_blank"
-                        class="font-mono text-sm transition-colors" style="color: var(--text-tertiary);"
-                        onmouseover="this.style.color='var(--accent-primary)'"
-                        onmouseout="this.style.color='var(--text-tertiary)'">
-                        GitHub
-                    </a>
-                    <a href="#contact" class="font-mono text-sm transition-colors" style="color: var(--text-tertiary);"
-                        onmouseover="this.style.color='var(--accent-primary)'"
-                        onmouseout="this.style.color='var(--text-tertiary)'">
-                        Contact
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script>
         // Page Loader
