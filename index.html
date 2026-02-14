@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +26,6 @@
             --text-secondary: #a8a8a8;
             --text-tertiary: #6a6a6a;
             --border-color: #2a2a2a;
-=======
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +44,6 @@
             --text-primary: #f5f5f5;
             --text-secondary: #a0a0a0;
             --text-tertiary: #6a6a6a;
->>>>>>> origin/main
         }
 
         * {
@@ -56,18 +53,14 @@
         }
 
         body {
-<<<<<<< HEAD
             font-family: 'DM Sans', sans-serif;
-=======
             font-family: 'Manrope', sans-serif;
->>>>>>> origin/main
             background-color: var(--bg-primary);
             color: var(--text-primary);
             overflow-x: hidden;
             position: relative;
         }
 
-<<<<<<< HEAD
         /* Custom cursor */
         body {
             cursor: none;
@@ -135,7 +128,6 @@
 
         .font-mono {
             font-family: 'IBM Plex Mono', monospace;
-=======
         /* Grain texture overlay */
         body::before {
             content: '';
@@ -152,21 +144,17 @@
 
         .serif {
             font-family: 'Cormorant Garamond', serif;
->>>>>>> origin/main
         }
 
         /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-<<<<<<< HEAD
                 transform: translateY(40px);
             }
 
-=======
                 transform: translateY(30px);
             }
->>>>>>> origin/main
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -177,16 +165,12 @@
             from {
                 opacity: 0;
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/main
             to {
                 opacity: 1;
             }
         }
 
-<<<<<<< HEAD
         @keyframes slideInRight {
             from {
                 opacity: 0;
@@ -208,23 +192,18 @@
 
             50% {
                 box-shadow: 0 0 40px rgba(0, 255, 136, 0.6);
-=======
         @keyframes shimmer {
             0% {
                 background-position: -200% 0;
             }
             100% {
                 background-position: 200% 0;
->>>>>>> origin/main
             }
         }
 
         .animate-fade-in-up {
-<<<<<<< HEAD
             animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-=======
             animation: fadeInUp 0.8s ease-out forwards;
->>>>>>> origin/main
             opacity: 0;
         }
 
@@ -233,7 +212,6 @@
             opacity: 0;
         }
 
-<<<<<<< HEAD
         .animate-slide-in-right {
             animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             opacity: 0;
@@ -369,7 +347,6 @@
             opacity: 0.6;
             filter: blur(25px);
             animation: glowPulse 3s ease-in-out infinite;
-=======
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
@@ -400,14 +377,13 @@
 
         .profile-image-wrapper:hover::before {
             opacity: 0.6;
->>>>>>> origin/main
+ origin/main
         }
 
         .profile-image {
             position: relative;
             width: 100%;
             height: 100%;
-<<<<<<< HEAD
             object-fit: cover;
             border-radius: 30px;
             border: 4px solid var(--bg-primary);
@@ -433,7 +409,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-=======
+
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent-gold);
@@ -454,14 +430,14 @@
             padding: 2rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
->>>>>>> origin/main
+ origin/main
         }
 
         .project-card::before {
             content: '';
             position: absolute;
             top: 0;
-<<<<<<< HEAD
+ HEAD
             left: 0;
             width: 100%;
             height: 4px;
@@ -473,7 +449,7 @@
 
         .project-card:hover::before {
             transform: scaleX(1);
-=======
+
             left: -100%;
             width: 100%;
             height: 100%;
@@ -483,12 +459,12 @@
 
         .project-card:hover::before {
             left: 100%;
->>>>>>> origin/main
+ origin/main
         }
 
         .project-card:hover {
             transform: translateY(-8px);
-<<<<<<< HEAD
+ HEAD
             border-color: var(--accent-primary);
             box-shadow:
                 12px 12px 0 rgba(0, 255, 136, 0.2),
@@ -559,7 +535,6 @@
         }
 
         .link-primary::after {
-=======
             border-color: rgba(212, 175, 55, 0.3);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(212, 175, 55, 0.2);
         }
@@ -585,13 +560,12 @@
         }
 
         .link-accent::after {
->>>>>>> origin/main
             content: '';
             position: absolute;
             bottom: -2px;
             left: 0;
             width: 0;
-<<<<<<< HEAD
+ HEAD
             height: 2px;
             background: var(--accent-primary);
             transition: width 0.3s ease;
@@ -619,7 +593,6 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             text-decoration: none;
-=======
             height: 1px;
             background: var(--accent-gold);
             transition: width 0.3s ease;
@@ -713,44 +686,44 @@
             color: var(--accent-gold);
             text-decoration: none;
             font-weight: 500;
->>>>>>> origin/main
+ origin/main
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-<<<<<<< HEAD
+ HEAD
         .btn-primary::before {
-=======
+
         .btn-ghost::before {
->>>>>>> origin/main
+ origin/main
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             width: 0;
             height: 0;
-<<<<<<< HEAD
+ HEAD
             background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
-=======
+
             border-radius: 50%;
             background: rgba(212, 175, 55, 0.1);
->>>>>>> origin/main
+ origin/main
             transform: translate(-50%, -50%);
             transition: width 0.4s ease, height 0.4s ease;
         }
 
-<<<<<<< HEAD
+ HEAD
         .btn-primary:hover::before {
-=======
+
         .btn-ghost:hover::before {
->>>>>>> origin/main
+ origin/main
             width: 300px;
             height: 300px;
         }
 
-<<<<<<< HEAD
+ HEAD
         .btn-primary:hover {
             transform: translate(4px, -4px);
             box-shadow: -4px 4px 0 var(--bg-primary);
@@ -1065,7 +1038,6 @@
                         style="padding: 0.75rem 1.5rem; font-size: 0.875rem;">
                         <span>Contact Me</span>
                     </a>
-=======
         .btn-ghost:hover {
             border-color: var(--accent-gold);
             transform: translateY(-2px);
@@ -1087,13 +1059,11 @@
                 <div class="flex gap-8">
                     <a href="#profile" class="text-sm uppercase tracking-wider active">Profile</a>
                     <a href="#projects" class="text-sm uppercase tracking-wider">Projects</a>
->>>>>>> origin/main
                 </div>
             </div>
         </div>
     </nav>
 
-<<<<<<< HEAD
 
     <!-- Hero Section -->
     <section id="about" class="min-h-screen flex items-center pt-24 pb-20">
@@ -1557,7 +1527,6 @@
             <div class="pt-8 border-t-2" style="border-color: var(--border-color);">
                 <div class="font-mono text-sm" style="color: var(--text-tertiary);">
                     © 2026 Kwangseob Park. Built with passion and innovation ⚡
-=======
     <!-- Hero Section -->
     <section id="profile" class="min-h-screen flex items-center justify-center pt-20">
         <div class="max-w-4xl mx-auto px-6 text-center">
@@ -1669,13 +1638,11 @@
                             <path d="M5 12l6-6M11 11V6H6"/>
                         </svg>
                     </a>
->>>>>>> origin/main
                 </div>
             </div>
         </div>
     </section>
 
-<<<<<<< HEAD
     <script>
         // Page Loader
         window.addEventListener('load', () => {
@@ -1715,7 +1682,6 @@
 
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-=======
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5">
         <div class="max-w-6xl mx-auto px-6 text-center">
@@ -1728,7 +1694,6 @@
     <script>
         // Smooth scrolling for navigation
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
->>>>>>> origin/main
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -1741,15 +1706,12 @@
             });
         });
 
-<<<<<<< HEAD
         // Active Navigation
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
-=======
         // Update active nav link on scroll
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('nav a[href^="#"]');
->>>>>>> origin/main
 
         window.addEventListener('scroll', () => {
             let current = '';
@@ -1767,7 +1729,6 @@
                     link.classList.add('active');
                 }
             });
-<<<<<<< HEAD
 
             // Hide scroll indicator after scrolling
             if (window.scrollY > 100) {
@@ -1808,9 +1769,7 @@
 </body>
 
 </html>"?????????"
-=======
         });
     </script>
 </body>
 </html>
->>>>>>> origin/main
