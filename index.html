@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -33,7 +33,8 @@
 
         /* Typography */
         .font-display {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
         }
 
         .font-mono {
@@ -48,12 +49,22 @@
         body {
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             min-height: 100vh;
+            line-height: 1.75;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         body::before {
@@ -223,11 +234,23 @@
             color: var(--text-primary);
         }
 
+        .nav-glass {
+            background: rgba(5, 5, 5, 0.75) !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            transition: all 0.3s ease;
+        }
+
         /* Hero Section */
         .hero-title {
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 0.9;
-            font-weight: 900;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            line-height: 1.1;
+            font-weight: 800;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -259,60 +282,131 @@
         /* Profile Image */
         .profile-wrapper {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 320px;
+            height: 320px;
+            max-width: 100%;
             z-index: 10;
+            border-radius: 20px;
+            overflow: hidden;
+            /* Ensure border radius works */
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            display: block;
+            /* Enhanced rendering for crispness */
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            /* Hardware acceleration */
+            backface-visibility: hidden;
         }
 
         .profile-wrapper::before {
             content: '';
             position: absolute;
-            inset: -6px;
+            inset: -4px;
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
-            border-radius: 30px;
+            border-radius: 24px;
             opacity: 0.6;
             filter: blur(25px);
             animation: glowPulse 3s ease-in-out infinite;
 
         }
 
-        /* Project Cards - Neo-Brutalist Style */
+        .nav-glass {
+            background: rgba(5, 5, 5, 0.75) !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Project Cards - Premium Style */
         .project-card {
             position: relative;
             background: var(--bg-card);
-            border: 3px solid var(--border-color);
-            border-radius: 0;
-            padding: 2.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            height: 100%;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 3rem 2.5rem 2.5rem 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: visible;
+            /* Allow hover scaling to pop out */
             display: flex;
             flex-direction: column;
+            height: 100%;
+            gap: 1.5rem;
+            z-index: 1;
+        }
 
+        .project-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            opacity: 0.4;
+            letter-spacing: 1px;
+        }
+
+        .project-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            z-index: 10;
+        }
+
+        .project-card:hover .project-number {
+            opacity: 1;
         }
 
 
 
         /* Tech Tags */
         .tech-tag {
-            display: inline-block;
-            padding: 0.4rem 0.8rem;
-            background: transparent;
-            border: 2px solid var(--border-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.75rem;
             color: var(--text-secondary);
-            font-weight: 600;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
         }
 
+        .tech-tag svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.8;
+        }
+
         .tech-tag:hover {
-            background: var(--accent-primary);
-            color: var(--bg-primary);
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent-primary);
             border-color: var(--accent-primary);
             transform: translateY(-2px);
+        }
+
+        .tech-tag:hover svg {
+            opacity: 1;
         }
 
         /* Links */
@@ -625,12 +719,35 @@
         /* Responsive */
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                line-height: 1.25;
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.7;
+                margin-bottom: 2rem;
+            }
+
+            section {
+                padding-top: 5rem;
+                padding-bottom: 5rem;
             }
 
             .profile-wrapper {
-                width: 280px;
-                height: 280px;
+                width: 240px;
+                height: 240px;
+                margin-top: 3rem;
+                margin-bottom: 2rem;
+            }
+
+            .nav-container {
+                gap: 1rem !important;
+            }
+
+            .nav-links-wrapper {
+                gap: 1rem !important;
             }
 
             .project-card,
@@ -696,28 +813,25 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5">
-            <div class="flex items-center justify-between">
-                <a href="#" class="font-mono text-xl font-bold text-white">KP<span
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 py-4 md:py-5">
+            <div class="flex items-center justify-between nav-container">
+                <a href="#" class="font-mono text-xl font-bold text-white shrink-0">KP<span
                         class="text-accent-primary">.</span></a>
-                <div class="flex gap-8">
+                <div class="flex items-center gap-6 md:gap-10 nav-links-wrapper">
                     <a href="#about" class="nav-link active">About</a>
-                    <a href="#work" class="nav-link">Projects</a>
-                    <a href="mailto:Jitnet57@gmail.com" class="btn-primary btn-sm">
+                    <a href="#work" class="nav-link">Feature</a>
+                    <a href="mailto:Jitnet57@gmail.com" class="btn-primary btn-sm whitespace-nowrap">
                         <span>Contact Me</span>
                     </a>
-
-
-
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="min-h-screen flex items-center pt-24 pb-20">
-        <div class="max-w-7xl mx-auto px-6 w-full">
+    <section id="about" class="min-h-screen flex items-center pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 w-full">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left: Text Content -->
                 <div>
@@ -755,7 +869,7 @@
                 <!-- Right: Profile Image -->
                 <div class="flex justify-center lg:justify-end animate-fade-in delay-700">
                     <div class="profile-wrapper">
-                        <img src="profile.jpg" alt="Kwangseob Park" class="profile-image"
+                        <img src="profile.jpg" alt="Kwangseob Park" class="profile-photo"
                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22280%22 height=%22280%22%3E%3Crect width=%22280%22 height=%22280%22 fill=%22%23151515%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22IBM Plex Mono%22 font-size=%22100%22 fill=%22%2300ff88%22 font-weight=%22700%22%3EKP%3C/text%3E%3C/svg%3E'">
                     </div>
                 </div>
@@ -771,7 +885,7 @@
 
     <!-- About Section -->
     <section class="py-24" style="background: var(--bg-secondary);">
-        <div class="max-w-4xl mx-auto px-6">
+        <div class="max-w-4xl mx-auto px-8 md:px-16">
             <div class="section-header animate-fade-in-up">
                 <div class="section-number">// ABOUT</div>
                 <div class="section-underline"></div>
@@ -802,7 +916,7 @@
 
     <!-- Tech Stack Section -->
     <section class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-6xl mx-auto px-8 md:px-16">
             <div class="section-header animate-fade-in-up">
                 <div class="section-number">// TECH STACK</div>
                 <div class="section-underline"></div>
@@ -814,11 +928,41 @@
                     <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">
                         Frontend</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Vite</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 128 128" fill="currentColor">
+                                <path
+                                    d="M128 41.6c0 1.2-.6 2.4-1.7 3.2l-22.1 12.8c-2.3 1.3-3 4.3-1.6 6.5s4.3 3 6.5 1.6l22.1-12.8c4.4-2.5 5.9-8.1 3.4-12.5s-8.1-5.9-12.5-3.4L100 50c-2.3 1.3-3 4.3-1.6 6.5s4.3 3 6.5 1.6l22.1-12.8c1.1-.7 1-1.9 1-3.7zM64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 121.6C32.2 121.6 6.4 95.8 6.4 64S32.2 6.4 64 6.4 121.6 32.2 121.6 64s-25.8 57.6-57.6 57.6zM64 32C46.3 32 32 46.3 32 64s14.3 32 32 32 32-14.3 32-32-14.3-32-32-32zm0 57.6c-14.1 0-25.6-11.5-25.6-25.6S49.9 38.4 64 38.4s25.6 11.5 25.6 25.6S78.1 89.6 64 89.6z" />
+                            </svg>
+                            React
+                        </span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12.636 1.13c-.318-.584-1.154-.584-1.472 0L1.75 18.326c-.347.636.115 1.403.837 1.403H11.5v4h1v-4h8.913c.722 0 1.184-.767.837-1.403L12.636 1.13zM12 4.144L18.423 18.73H5.577L12 4.144z" />
+                            </svg>
+                            Vite
+                        </span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.5 18v-12l10 6-10 6z" />
+                            </svg>
+                            TypeScript
+                        </span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 512 512" fill="currentColor">
+                                <path
+                                    d="M0 64l48 448 208 64 208-64 48-448h-416zm366.4 125l-13.6 150.4-96.8 28.8-96.8-28.8-6.4-71.2h63.2l3.2 32.8 36.8 11.2 36.8-11.2 4.8-55.2h-143.2l-10.4-114.4h223.2l-4 43.2h-156l2.4 34.4h158.4z" />
+                            </svg>
+                            HTML
+                        </span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 512 512" fill="currentColor">
+                                <path
+                                    d="M0 64l48 448 208 64 208-64 48-448h-416zm366.4 143.2h-152l2.4 34.4h149.6l-13.6 150.4-96.8 28.8-96.8-28.8-6.4-71.2h63.2l3.2 32.8 36.8 11.2 36.8-11.2 4.8-55.2h-20.8l-1.6-18.4h-125.6l-10.4-114.4h268.8l-4 43.2z" />
+                            </svg>
+                            CSS
+                        </span>
                     </div>
                 </div>
 
@@ -827,9 +971,25 @@
                     <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">Backend
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Supabase</span>
-                        <span class="tech-tag">REST APIs</span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 448 512" fill="currentColor">
+                                <path
+                                    d="M224 104V0C102.5 0 0 102.5 0 224s102.5 224 224 224 224-102.5 224-224-102.5-224-224-224zm0 288c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z" />
+                            </svg>
+                            Node.js
+                        </span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z" />
+                            </svg>
+                            Supabase
+                        </span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l10 10l-10 10l-10-10l10-10z" />
+                            </svg>
+                            REST APIs
+                        </span>
                     </div>
                 </div>
 
@@ -838,7 +998,13 @@
                     <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">
                         Database</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                            </svg>
+                            PostgreSQL
+                        </span>
                     </div>
                 </div>
 
@@ -847,8 +1013,20 @@
                     <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">
                         Deployment</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tech-tag">Vercel</span>
-                        <span class="tech-tag">GitHub</span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z" />
+                            </svg>
+                            Vercel
+                        </span>
+                        <span class="tech-tag">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                                <path d="M12 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
+                            </svg>
+                            GitHub
+                        </span>
                     </div>
                 </div>
             </div>
@@ -858,7 +1036,7 @@
     <!-- Featured Work Section -->
     <section id="work" class="py-24"
         style="background: linear-gradient(180deg, var(--bg-primary), var(--bg-secondary));">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-8 md:px-16">
             <!-- Section Header -->
             <div class="section-header animate-fade-in-up">
                 <div class="section-number">// PROJECTS</div>
@@ -866,7 +1044,7 @@
                 <div class="section-underline"></div>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-12 items-stretch">
                 <!-- Project 1: Web Application Platform -->
                 <div class="project-card animate-fade-in-up delay-200">
                     <div class="project-number">#01</div>
@@ -1072,18 +1250,20 @@
 
 
     <!-- CTA Section -->
-    <section class="py-24 border-t-[3px]" style="border-color: var(--border-color); background: var(--bg-secondary);">
-        <div class="max-w-4xl mx-auto px-6 text-center">
+    <section class="py-24 border-t-[3px] last-section"
+        style="border-color: var(--border-color); background: var(--bg-secondary);">
+        <div class="max-w-4xl mx-auto px-8 md:px-16 text-center">
             <!-- Headline -->
-            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in-up"
-                style="background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <!-- Headline -->
+            <h2 class="text-3xl md:text-5xl font-black mb-8 animate-fade-in-up"
+                style="background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2;">
                 Let's Talk About Your Project
             </h2>
 
             <!-- Testimonial / Credibility -->
             <div class="mb-8 animate-fade-in-up delay-100">
-                <p class="text-lg italic mb-2"
-                    style="color: var(--text-secondary); font-family: 'Playfair Display', serif;">
+                <p class="text-lg italic mb-2 tracking-wide"
+                    style="color: var(--text-secondary); font-family: 'Inter', sans-serif; font-weight: 300;">
                     "Kwangseob delivered a production-ready app ahead of schedule. His technical
                     expertise and
                     communication made the entire process seamless."
@@ -1095,7 +1275,8 @@
 
             <!-- What You Get From This Call -->
             <div class="mb-10 animate-fade-in-up delay-200">
-                <h3 class="text-xl font-bold mb-6" style="color: var(--accent-primary);">What You'll
+                <h3 class="text-lg md:text-xl font-bold mb-6 tracking-tight" style="color: var(--accent-primary);">What
+                    You'll
                     Get From This Call:
                 </h3>
                 <div class="grid md:grid-cols-3 gap-6 text-left">

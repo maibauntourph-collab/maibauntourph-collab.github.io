@@ -1,3 +1,114 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* ===== MOBILE BOTTOM SPACING FIX ===== */
+@media (max-width: 768px) {
+    .last-section>*+* {
+        margin-top: 1.5rem;
+        /* consistent breathing room */
+    }
+
+    .last-section p,
+    .last-section a,
+    .footer-text {
+        line-height: 1.85;
+        /* adds breathing room */
+    }
+}
+
+/* ==========================
+   PROFILE PHOTO - SHARP & PROFESSIONAL
+   ========================== */
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Highest quality rendering possible */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .profile-photo {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* ==========================
+   SECTION SPACING FIX
+   ========================== */
+section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
+/* Extra padding for last section / footer to prevent overlaps */
+footer,
+.last-section {
+    padding-bottom: 120px;
+}
+
+/* ==========================
+   MOBILE OPTIMIZATION
+   ========================== */
+@media (max-width: 768px) {
+    section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+
+    footer,
+    .last-section {
+        padding-bottom: 160px;
+    }
+
+    /* Adjust body text for readability */
+    body {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    p,
+    li {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    /* Adjust headings to prevent overlap */
+    h1 {
+        font-size: 2.2rem;
+        line-height: 1.15;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        line-height: 1.25;
+    }
+
+    /* Buttons / CTA mobile-friendly */
+    .cta,
+    .button {
+        font-size: 0.9rem;
+        padding: 0.7rem 1.1rem;
+    }
+
+    /* Prevent stacked elements from touching */
+    .stack>*+* {
+        margin-top: 1.5rem;
+    }
+}
