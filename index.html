@@ -31,6 +31,15 @@
 
         }
 
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: inherit;
+        }
+
         /* Typography */
         .font-display {
             font-family: 'Inter', sans-serif;
@@ -248,14 +257,16 @@
 
         /* Hero Section */
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            line-height: 1.1;
+            font-size: clamp(2.5rem, 8vw, 6.5rem);
+            /* Slightly larger for authority */
+            line-height: 1.05;
             font-weight: 800;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+            background: linear-gradient(135deg, var(--text-primary) 70%, rgba(255, 255, 255, 0.7) 100%);
+            /* Toned down green in headline as requested */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.04em;
         }
 
         .status-badge {
@@ -282,39 +293,44 @@
         /* Profile Image */
         .profile-wrapper {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 380px;
+            /* Increased size by ~15% */
+            height: 380px;
             max-width: 100%;
             z-index: 10;
-            border-radius: 20px;
-            overflow: hidden;
-            /* Ensure border radius works */
+            border-radius: 24px;
+            overflow: visible;
+            /* Allow glow to spill out */
+            margin-top: -2rem;
+            /* Move slightly upward */
         }
 
         .profile-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius: 24px;
             display: block;
-            /* Enhanced rendering for crispness */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Subtle border */
             image-rendering: -webkit-optimize-contrast;
             image-rendering: crisp-edges;
             transform: translateZ(0);
-            /* Hardware acceleration */
             backface-visibility: hidden;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.1);
+            /* Soft green glow */
         }
 
         .profile-wrapper::before {
             content: '';
             position: absolute;
             inset: -4px;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
-            border-radius: 24px;
-            opacity: 0.6;
-            filter: blur(25px);
-            animation: glowPulse 3s ease-in-out infinite;
-
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 28px;
+            opacity: 0.3;
+            /* Toned down glow */
+            filter: blur(30px);
+            animation: glowPulse 4s ease-in-out infinite;
         }
 
         .nav-glass {
@@ -378,35 +394,46 @@
         .tech-tag {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            gap: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            background: rgba(255, 255, 255, 0.06);
+            /* Increased background contrast */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            /* Crisper borders */
+            border-radius: 10px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.75rem;
-            color: var(--text-secondary);
-            font-weight: 500;
+            color: var(--text-primary);
+            /* Higher text contrast */
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            letter-spacing: 0.8px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            /* Faster, smoother transition */
+            cursor: default;
         }
 
         .tech-tag svg {
-            width: 14px;
-            height: 14px;
-            opacity: 0.8;
+            width: 16px;
+            height: 16px;
+            opacity: 0.9;
+            transition: transform 0.4s ease;
         }
 
         .tech-tag:hover {
-            background: rgba(0, 255, 136, 0.1);
+            background: rgba(0, 255, 136, 0.12);
             color: var(--accent-primary);
             border-color: var(--accent-primary);
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.02);
+            /* More pronounced lift */
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.15);
+            /* Soft glow match */
         }
 
         .tech-tag:hover svg {
             opacity: 1;
+            transform: rotate(5deg) scale(1.1);
+            /* Subtle rotational play */
         }
 
         /* Links */
@@ -442,43 +469,23 @@
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            padding: 1.25rem 2.5rem;
+            padding: 1.5rem 3rem;
+            /* Increased size for dominance */
             background: var(--accent-primary);
             color: var(--bg-primary);
             border: 3px solid var(--accent-primary);
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 800;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-decoration: none;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.4s ease, height 0.4s ease;
-        }
-
-        .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .btn-primary:hover {
-            transform: translate(4px, -4px);
-            box-shadow: -4px 4px 0 var(--bg-primary);
-        }
-
-        .btn-primary span {
-            position: relative;
-            z-index: 1;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.3);
+            filter: brightness(1.1);
         }
 
         .btn-outline {
@@ -487,9 +494,11 @@
             gap: 0.75rem;
             padding: 1.25rem 2.5rem;
             background: transparent;
-            color: var(--accent-primary);
-            border: 3px solid var(--accent-primary);
-            font-weight: 700;
+            color: var(--text-secondary);
+            /* Lighter look */
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            /* Reduced border contrast */
+            font-weight: 600;
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -498,10 +507,10 @@
         }
 
         .btn-outline:hover {
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-            transform: translate(4px, -4px);
-            box-shadow: -4px 4px 0 var(--bg-primary);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .btn-sm {
@@ -816,13 +825,15 @@
     <nav class="fixed top-0 left-0 right-0 z-50 nav-glass">
         <div class="max-w-7xl mx-auto px-8 md:px-16 py-4 md:py-5">
             <div class="flex items-center justify-between nav-container">
-                <a href="#" class="font-mono text-xl font-bold text-white shrink-0">KP<span
-                        class="text-accent-primary">.</span></a>
+                <a href="#" class="font-mono text-xl font-bold text-white shrink-0 tracking-tighter"
+                    style="color: white !important;">Kwangseob Park<span class="text-accent-primary">.</span></a>
                 <div class="flex items-center gap-6 md:gap-10 nav-links-wrapper">
                     <a href="#about" class="nav-link active">About</a>
-                    <a href="#work" class="nav-link">Feature</a>
-                    <a href="mailto:Jitnet57@gmail.com" class="btn-primary btn-sm whitespace-nowrap">
-                        <span>Contact Me</span>
+                    <a href="#work" class="nav-link">Work</a>
+                    <a href="mailto:Jitnet57@gmail.com" class="nav-link">Contact</a>
+                    <a href="mailto:Jitnet57@gmail.com?subject=Discovery Call Request"
+                        class="btn-primary btn-sm whitespace-nowrap hidden lg:inline-flex">
+                        <span>Book a Discovery Call</span>
                     </a>
                 </div>
             </div>
@@ -835,34 +846,52 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left: Text Content -->
                 <div>
-                    <div class="status-badge animate-fade-in delay-100">
-                        <div class="status-dot"></div>
-                        <span>Available for opportunities</span>
+                    <div
+                        class="status-badge group relative animate-fade-in delay-100 hidden md:inline-flex pointer-events-auto">
+                        <div class="flex items-center gap-2">
+                            <div class="status-dot"></div>
+                            <span>Available for Select Projects</span>
+                        </div>
+                        <div class="absolute top-full left-0 mt-2 text-[10px] font-mono uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none"
+                            style="color: var(--accent-primary);">
+                            Limited availability · Quality-focused engagements only
+                        </div>
                     </div>
 
                     <h1 class="hero-title font-display mt-8 mb-6 animate-fade-in-up delay-200">
-                        Kwangseob<br />Park
+                        I build production-ready<br />
+                        web applications for real users.
                     </h1>
 
                     <div class="font-mono text-lg mb-6 animate-fade-in-up delay-300"
-                        style="color: var(--accent-primary);">
-                        I build modern, fast, and scalable web applications.
+                        style="color: var(--accent-primary); font-weight: 600;">
+                        Kwangseob Park — Full-Stack Developer
                     </div>
 
-                    <p class="text-lg mb-8 animate-fade-in-up delay-400"
-                        style="color: var(--text-secondary); line-height: 1.8;">
-                        Full-stack web developer specializing in React-based frontends, secure
-                        backends, and
-                        production-ready deployments using Supabase and Vercel.
+                    <p class="text-xl mb-8 animate-fade-in-up delay-400 hidden md:block"
+                        style="color: var(--text-secondary); line-height: 1.8; max-width: 600px;">
+                        Full-stack developer focused on scalable systems, clean architecture, and real-world delivery.
                     </p>
 
-                    <div class="flex flex-wrap gap-4 mt-8 animate-fade-in-up delay-500">
-                        <a href="mailto:Jitnet57@gmail.com?subject=Discovery Call Request" class="btn-primary">
-                            <span>Book a Free Discovery Call</span>
-                        </a>
-                        <a href="#work" class="btn-outline">
-                            <span>View Projects</span>
-                        </a>
+                    <div class="mt-8 animate-fade-in-up delay-500">
+                        <div class="flex flex-wrap gap-4">
+                            <a href="mailto:Jitnet57@gmail.com?subject=Build Consultation Request"
+                                class="btn-primary w-full md:w-auto justify-center">
+                                <span class="hidden md:inline">Book a Free Discovery Call</span>
+                                <span class="md:hidden">Book a 15-min Build Consultation</span>
+                            </a>
+                            <a href="#work" class="btn-outline hidden md:inline-flex">
+                                <span>View Projects</span>
+                            </a>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-2">
+                            <p class="text-xs uppercase tracking-widest font-mono opacity-40">
+                                No obligation • 15–30 minutes • Project discussion only
+                            </p>
+                            <p class="text-sm font-medium italic opacity-80" style="color: var(--accent-primary);">
+                                “Trusted for production-ready builds used in real business environments”
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -892,24 +921,19 @@
             </div>
 
             <p class="text-xl mb-6 animate-fade-in-up delay-200" style="color: var(--text-primary); line-height: 1.8;">
-                I design and build end-to-end web applications with a strong focus on clarity,
-                performance, and
-                real-world usability.
+                I design and engineer full-stack web applications built to survive real users, real traffic, and real
+                business pressure.
             </p>
 
             <p class="text-lg mb-6 animate-fade-in-up delay-300"
                 style="color: var(--text-secondary); line-height: 1.8;">
-                My work spans the full development lifecycle—from frontend interfaces and backend
-                logic to database
-                design and deployment. I prioritize clean code, maintainable architecture, and
-                solutions that are ready
-                for real users.
+                I focus on production constraints early — scalability, maintainability, and clarity — so projects don’t
+                collapse after launch.
             </p>
 
             <p class="text-lg animate-fade-in-up delay-400" style="color: var(--text-secondary); line-height: 1.8;">
-                Using modern tools like React, Supabase, and Vercel, I deliver reliable web
-                applications that solve
-                practical problems and scale with real-world needs.
+                I work with modern technologies to deliver reliable, scalable applications that are ready for production
+                from day one.
             </p>
         </div>
     </section>
@@ -918,15 +942,19 @@
     <section class="py-24">
         <div class="max-w-6xl mx-auto px-8 md:px-16">
             <div class="section-header animate-fade-in-up">
-                <div class="section-number">// TECH STACK</div>
+                <div class="section-number">// PRODUCTION-READY ENGINEERING</div>
                 <div class="section-underline"></div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Frontend -->
                 <div class="animate-fade-in-up delay-200">
-                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--accent-primary);">
                         Frontend</h3>
+                    <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">Designs and
+                        engineers
+                        high-performance user interfaces that reduce friction, improve clarity, and support real user
+                        behavior at scale.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tech-tag">
                             <svg viewBox="0 0 128 128" fill="currentColor">
@@ -968,8 +996,11 @@
 
                 <!-- Backend -->
                 <div class="animate-fade-in-up delay-300">
-                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">Backend
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--accent-primary);">Backend
                     </h3>
+                    <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">Architects secure,
+                        scalable backend systems that handle real production traffic, enforce access control, and
+                        support long-term feature growth without rewrites.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tech-tag">
                             <svg viewBox="0 0 448 512" fill="currentColor">
@@ -995,8 +1026,11 @@
 
                 <!-- Database -->
                 <div class="animate-fade-in-up delay-400">
-                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--accent-primary);">
                         Database</h3>
+                    <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">Designs resilient
+                        data models and query strategies that protect data integrity, scale with usage, and support
+                        analytics, reporting, and business logic.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tech-tag">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1010,8 +1044,11 @@
 
                 <!-- Deployment -->
                 <div class="animate-fade-in-up delay-500">
-                    <h3 class="text-xl font-bold mb-4" style="color: var(--accent-primary);">
+                    <h3 class="text-xl font-bold mb-2" style="color: var(--accent-primary);">
                         Deployment</h3>
+                    <p class="text-sm mb-4" style="color: var(--text-secondary); line-height: 1.6;">Delivers and
+                        maintains production deployments with CI/CD workflows, environment isolation, and rollback-safe
+                        releases—so systems stay online and stable.</p>
                     <div class="flex flex-wrap gap-2">
                         <span class="tech-tag">
                             <svg viewBox="0 0 24 24" fill="currentColor">
@@ -1030,6 +1067,23 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Production Capabilities -->
+            <div class="mt-16 pt-12 border-t animate-fade-in-up delay-600"
+                style="border-color: rgba(255, 255, 255, 0.05);">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2" style="color: var(--accent-primary);">
+                    <span>🛠</span> Production Capabilities
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="tech-tag">Authentication & Authorization</span>
+                    <span class="tech-tag">API Design & Integration</span>
+                    <span class="tech-tag">Responsive & Mobile-First UI</span>
+                    <span class="tech-tag">Performance Optimization</span>
+                    <span class="tech-tag">Secure Environment Variables</span>
+                    <span class="tech-tag">Version Control & CI/CD</span>
+                    <span class="tech-tag">Deployment & Maintenance</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1039,7 +1093,7 @@
         <div class="max-w-7xl mx-auto px-8 md:px-16">
             <!-- Section Header -->
             <div class="section-header animate-fade-in-up">
-                <div class="section-number">// PROJECTS</div>
+                <div class="section-number">// WORK</div>
                 <h2 class="section-title">Featured Work</h2>
                 <div class="section-underline"></div>
             </div>
@@ -1052,9 +1106,8 @@
                     <h3 class="project-title">Web Application Platform</h3>
 
                     <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
-                        A production-ready web application designed to solve a real-world use case
-                        with a clean user
-                        interface and a reliable backend.
+                        A production-grade web platform designed to handle real users, real data, and real business
+                        workflows—built with scalability, performance, and maintainability as first-class concerns.
                     </p>
 
                     <div class="mb-6">
@@ -1119,9 +1172,8 @@
                     <h3 class="project-title">Admin Dashboard System</h3>
 
                     <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
-                        An admin-focused dashboard built to manage data, users, and application
-                        logic in a structured
-                        and secure environment.
+                        A secure internal dashboard built to give operators full visibility and control over application
+                        data—designed for clarity, speed, and operational efficiency.
                     </p>
 
                     <div class="mb-6">
@@ -1185,9 +1237,8 @@
                     <h3 class="project-title">Business Utility Tool</h3>
 
                     <p class="mb-6" style="color: var(--text-secondary); line-height: 1.8; flex-grow: 1;">
-                        A lightweight business tool created to simplify workflows with speed,
-                        clarity, and usability in
-                        mind.
+                        A focused internal tool built to eliminate manual processes, reduce operational friction, and
+                        centralize business-critical actions into a single interface.
                     </p>
 
                     <div class="mb-6">
@@ -1244,6 +1295,13 @@
                     </div>
                 </div>
             </div>
+
+            <div class="mt-20 text-center animate-fade-in-up delay-500">
+                <p class="text-lg font-medium opacity-60 px-4" style="color: var(--text-secondary);">
+                    Every project is built with production constraints in mind: security, scalability, maintainability,
+                    and real user behavior.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -1255,133 +1313,118 @@
         <div class="max-w-4xl mx-auto px-8 md:px-16 text-center">
             <!-- Headline -->
             <!-- Headline -->
+            <!-- Headline -->
             <h2 class="text-3xl md:text-5xl font-black mb-8 animate-fade-in-up"
-                style="background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2;">
-                Let's Talk About Your Project
+                style="background: linear-gradient(135deg, var(--text-primary) 70%, rgba(255,255,255,0.7) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2;">
+                Let’s See If Your Project Is a Good Fit —<br class="hidden md:block" /> Before You Commit Resources
             </h2>
 
-            <!-- Testimonial / Credibility -->
-            <div class="mb-8 animate-fade-in-up delay-100">
-                <p class="text-lg italic mb-2 tracking-wide"
-                    style="color: var(--text-secondary); font-family: 'Inter', sans-serif; font-weight: 300;">
-                    "Kwangseob delivered a production-ready app ahead of schedule. His technical
-                    expertise and
-                    communication made the entire process seamless."
+            <!-- Testimonial -->
+            <div class="mb-12 max-w-2xl mx-auto animate-fade-in-up delay-100">
+                <p class="text-lg italic mb-4 tracking-wide"
+                    style="color: var(--text-secondary); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7;">
+                    “Kwangseob delivered a production-ready application ahead of schedule with clean architecture and
+                    clear communication. He understood the requirements quickly and executed without constant
+                    oversight.”
                 </p>
-                <p class="text-sm font-mono" style="color: var(--text-tertiary);">
+                <p class="text-sm font-mono uppercase tracking-widest opacity-60" style="color: var(--accent-primary);">
                     — Previous Client
                 </p>
             </div>
 
-            <!-- What You Get From This Call -->
-            <div class="mb-10 animate-fade-in-up delay-200">
-                <h3 class="text-lg md:text-xl font-bold mb-6 tracking-tight" style="color: var(--accent-primary);">What
-                    You'll
-                    Get From This Call:
-                </h3>
-                <div class="grid md:grid-cols-3 gap-6 text-left">
-                    <div class="flex gap-3">
-                        <div class="flex-shrink-0 mt-1">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <circle cx="10" cy="10" r="9" stroke="var(--accent-primary)" stroke-width="2" />
-                                <path d="M6 10l3 3 5-6" stroke="var(--accent-primary)" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+            <!-- What We'll Cover -->
+            <div
+                class="mb-12 animate-fade-in-up delay-200 bg-white/[0.03] border border-white/10 p-8 rounded-2xl text-left max-w-2xl mx-auto shadow-2xl">
+                <h3 class="text-sm font-mono uppercase tracking-widest mb-8 opacity-60 text-center"
+                    style="color: var(--text-primary);">What We’ll Cover on
+                    the Call</h3>
+                <div class="space-y-6">
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-5 h-5 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-accent-primary"></div>
                         </div>
-                        <div>
-                            <div class="font-bold mb-1" style="color: var(--text-primary);">Discuss
-                                Your Project</div>
-                            <div class="text-sm" style="color: var(--text-secondary);">Share your
-                                vision and goals</div>
-                        </div>
+                        <p class="text-sm md:text-base leading-relaxed font-medium" style="color: var(--text-primary);">
+                            Clarify
+                            your product goals and real constraints</p>
                     </div>
-                    <div class="flex gap-3">
-                        <div class="flex-shrink-0 mt-1">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <circle cx="10" cy="10" r="9" stroke="var(--accent-primary)" stroke-width="2" />
-                                <path d="M6 10l3 3 5-6" stroke="var(--accent-primary)" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-5 h-5 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-accent-primary"></div>
                         </div>
-                        <div>
-                            <div class="font-bold mb-1" style="color: var(--text-primary);">Tech
-                                Stack & Scope</div>
-                            <div class="text-sm" style="color: var(--text-secondary);">Get expert
-                                recommendations</div>
-                        </div>
+                        <p class="text-sm md:text-base leading-relaxed font-medium" style="color: var(--text-primary);">
+                            Identify
+                            technical risks before they become expensive</p>
                     </div>
-                    <div class="flex gap-3">
-                        <div class="flex-shrink-0 mt-1">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                <circle cx="10" cy="10" r="9" stroke="var(--accent-primary)" stroke-width="2" />
-                                <path d="M6 10l3 3 5-6" stroke="var(--accent-primary)" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-5 h-5 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-accent-primary"></div>
                         </div>
-                        <div>
-                            <div class="font-bold mb-1" style="color: var(--text-primary);">See If
-                                We're a Good Fit
-                            </div>
-                            <div class="text-sm" style="color: var(--text-secondary);">No pressure,
-                                just conversation
-                            </div>
+                        <p class="text-sm md:text-base leading-relaxed font-medium" style="color: var(--text-primary);">
+                            Define a
+                            realistic scope, stack, and delivery approach</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-5 h-5 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+                            <div class="w-1.5 h-1.5 rounded-full bg-accent-primary"></div>
                         </div>
+                        <p class="text-sm md:text-base leading-relaxed font-medium" style="color: var(--text-primary);">
+                            Decide
+                            whether working together makes sense</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Primary CTA -->
-            <div class="mb-6 animate-fade-in-up delay-300">
-                <a href="mailto:Jitnet57@gmail.com?subject=Discovery Call Request" class="btn-primary btn-lg">
-                    <span>📞 Book a Free Discovery Call</span>
+            <!-- Primary CTA Block -->
+            <div class="mb-10 animate-fade-in-up delay-300">
+                <a href="mailto:Jitnet57@gmail.com?subject=Discovery Call Request"
+                    class="btn-primary btn-lg inline-flex flex-col items-center py-6 px-12">
+                    <span class="mb-1">📞 Book a Free Discovery Call</span>
+                    <span class="text-xs font-mono font-normal opacity-60 normal-case tracking-normal">15–30 minutes ·
+                        No pressure · Clear next steps</span>
                 </a>
+                <p class="mt-4 text-xs italic opacity-40">
+                    I take on a limited number of projects to ensure quality and focus.
+                </p>
             </div>
 
-            <!-- Reassurance Text -->
-            <div class="mb-12 animate-fade-in-up delay-400">
-                <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-mono leading-relaxed"
-                    style="color: var(--text-secondary);">
-                    <div class="flex items-center gap-2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z" fill="var(--accent-primary)" />
-                        </svg>
-                        <span>15–30 min</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z" fill="var(--accent-primary)" />
-                        </svg>
-                        <span>No pressure</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M8 1l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5z" fill="var(--accent-primary)" />
-                        </svg>
-                        <span>Free consultation</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Secondary CTAs -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in-up delay-500">
-                <a href="#work" class="btn-outline btn-sm">
-                    <span>View Projects</span>
+            <!-- Secondary Links (Quieter) -->
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-20 animate-fade-in-up delay-400">
+                <a href="#work"
+                    class="text-xs uppercase tracking-widest font-mono opacity-60 hover:opacity-100 hover:text-accent-primary transition-all no-underline flex items-center gap-2"
+                    style="color: var(--text-primary) !important;">
+                    <span>View Selected Work</span>
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12l6-6M11 11V6H6" />
+                    </svg>
                 </a>
-                <a href="https://github.com/maibauntourph-collab" target="_blank" class="btn-outline btn-sm">
+                <a href="https://github.com/maibauntourph-collab" target="_blank"
+                    class="text-xs uppercase tracking-widest font-mono opacity-60 hover:opacity-100 hover:text-accent-primary transition-all no-underline flex items-center gap-2"
+                    style="color: var(--text-primary) !important;">
                     <span>GitHub Profile</span>
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12l6-6M11 11V6H6" />
+                    </svg>
                 </a>
             </div>
 
-            <!-- Copyright -->
-            <div class="pt-8 border-t-2" style="border-color: var(--border-color);">
-                <div class="font-mono text-sm leading-relaxed px-4" style="color: var(--text-tertiary);">
-                    <div class="flex flex-wrap justify-center items-center gap-2">
-                        <span>© 2026 Kwangseob Park. Built with passion and innovation ⚡</span>
-                        <span class="hidden sm:inline">•</span>
+            <!-- Footer Rewrite -->
+            <div class="pt-12 border-t" style="border-color: rgba(255, 255, 255, 0.05);">
+                <div class="flex flex-col gap-6 items-center text-center">
+                    <p class="font-mono text-sm tracking-widest uppercase opacity-40">
+                        Designed, engineered, and delivered with real-world production constraints in mind.
+                    </p>
+                    <div
+                        class="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs opacity-50 font-mono">
+                        <span>© 2026 Kwangseob Park. All rights reserved.</span>
+                        <span class="hidden md:inline">|</span>
                         <a href="#"
-                            style="color: var(--text-tertiary); text-decoration: none; transition: color 0.3s ease;"
-                            onmouseover="this.style.color='var(--accent-primary)'"
-                            onmouseout="this.style.color='var(--text-tertiary)'">Privacy Policy</a>
+                            class="hover:text-accent-primary transition-colors no-underline uppercase tracking-widest"
+                            style="color: var(--text-primary) !important;">Privacy
+                            Policy</a>
                     </div>
                 </div>
             </div>
